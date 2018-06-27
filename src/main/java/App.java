@@ -24,45 +24,56 @@ public class App {
 	
     public static void main( String[] args ) throws Exception {
     	
-//    	String srcFromPdf01 = System.getProperty("user.dir") + "\\pdf\\spiewniki_skany_pdf\\spiewnik_01";	
-//    	String srcFromPdf02 = System.getProperty("user.dir") + "\\pdf\\spiewniki_skany_pdf\\spiewnik_02";	
-//    	
-//    	String dstFromPdf01 = System.getProperty("user.dir") + "\\img\\spiewnik_01";	
-//    	String dstFromPdf02 = System.getProperty("user.dir") + "\\img\\spiewnik_02";	
-//    	getImgFromPdf(srcFromPdf01, dstFromPdf01);
-//    	getImgFromPdf(srcFromPdf02, dstFromPdf02);
-//    	
-//    	String dstImproveImg01 = System.getProperty("user.dir") + "\\img\\spiewnik_03";	
-//    	String dstImproveImg02 = System.getProperty("user.dir") + "\\img\\spiewnik_04";	
-//    	improveImg(dstFromPdf01, dstImproveImg01);
-//    	improveImg(dstFromPdf02, dstImproveImg02);
-//    	
-//    	String dstCutBlackArea01 = System.getProperty("user.dir") + "\\img\\spiewnik_05";	
-//    	String dstCutBlackArea02 = System.getProperty("user.dir") + "\\img\\spiewnik_06";
-//    	cutBackArea(dstImproveImg01, dstCutBlackArea01, true);
-//    	cutBackArea(dstImproveImg02, dstCutBlackArea02, false);
-//
-//    	String dstDivide01 = System.getProperty("user.dir") + "\\img\\spiewnik_07";	
-//    	String dstDivide02 = System.getProperty("user.dir") + "\\img\\spiewnik_08";	
-//    	divideToPage(dstCutBlackArea01, dstDivide01);
-//    	divideToPage(dstCutBlackArea02, dstDivide02);
-//    	
-//    	String dstToStraightenUp01 = System.getProperty("user.dir") + "\\img\\spiewnik_11";	
-//    	String dstToStraightenUp02 = System.getProperty("user.dir") + "\\img\\spiewnik_12";	
-//    	toStraightenUp(dstDivide01, dstToStraightenUp01);
-//    	toStraightenUp(dstDivide02, dstToStraightenUp02);
-//    	
-//    	String dstMajor01 = System.getProperty("user.dir") + "\\img\\spiewnik_13";	
-//    	String dstMajor02 = System.getProperty("user.dir") + "\\img\\spiewnik_14";	
-//    	new MajorProcessing(dstToStraightenUp01, dstMajor01).detectMusicSheetViolinAndBass();
-//    	new MajorProcessing(dstToStraightenUp02, dstMajor02).detectMusicSheetViolin();
+    	String srcFromPdf01 = System.getProperty("user.dir") + "\\pdf\\spiewniki_skany_pdf\\spiewnik_01";	
+    	String srcFromPdf02 = System.getProperty("user.dir") + "\\pdf\\spiewniki_skany_pdf\\spiewnik_02";	
+
+    	File dirDst= new File(System.getProperty("user.dir") + "\\img");
+		if (!dirDst.exists()) {
+			try {
+				dirDst.mkdirs();
+				System.out.println("DIR created" + System.getProperty("user.dir") + "\\img");
+			} catch (SecurityException e) {
+				e.printStackTrace();
+			}
+		}
+    	
+    	
+    	String dstFromPdf01 = System.getProperty("user.dir") + "\\img\\spiewnik_01";	
+    	String dstFromPdf02 = System.getProperty("user.dir") + "\\img\\spiewnik_02";	
+    	getImgFromPdf(srcFromPdf01, dstFromPdf01);
+    	getImgFromPdf(srcFromPdf02, dstFromPdf02);
+    	
+    	String dstImproveImg01 = System.getProperty("user.dir") + "\\img\\spiewnik_03";	
+    	String dstImproveImg02 = System.getProperty("user.dir") + "\\img\\spiewnik_04";	
+    	improveImg(dstFromPdf01, dstImproveImg01);
+    	improveImg(dstFromPdf02, dstImproveImg02);
+    	
+    	String dstCutBlackArea01 = System.getProperty("user.dir") + "\\img\\spiewnik_05";	
+    	String dstCutBlackArea02 = System.getProperty("user.dir") + "\\img\\spiewnik_06";
+    	cutBackArea(dstImproveImg01, dstCutBlackArea01, true);
+    	cutBackArea(dstImproveImg02, dstCutBlackArea02, false);
+
+    	String dstDivide01 = System.getProperty("user.dir") + "\\img\\spiewnik_07";	
+    	String dstDivide02 = System.getProperty("user.dir") + "\\img\\spiewnik_08";	
+    	divideToPage(dstCutBlackArea01, dstDivide01);
+    	divideToPage(dstCutBlackArea02, dstDivide02);
+    	
+    	String dstToStraightenUp01 = System.getProperty("user.dir") + "\\img\\spiewnik_11";	
+    	String dstToStraightenUp02 = System.getProperty("user.dir") + "\\img\\spiewnik_12";	
+    	toStraightenUp(dstDivide01, dstToStraightenUp01);
+    	toStraightenUp(dstDivide02, dstToStraightenUp02);
+    	
+    	String dstMajor01 = System.getProperty("user.dir") + "\\img\\spiewnik_13";	
+    	String dstMajor02 = System.getProperty("user.dir") + "\\img\\spiewnik_14";	
+    	new MajorProcessing(dstToStraightenUp01, dstMajor01).detectMusicSheetViolinAndBass();
+    	new MajorProcessing(dstToStraightenUp02, dstMajor02).detectMusicSheetViolin();
     	
     	createCnnText();
     	
-//    	String dstDetectText01 = System.getProperty("user.dir") + "\\img\\spiewnik_15";
-//    	String dstDetectText02 = System.getProperty("user.dir") + "\\img\\spiewnik_16";
-//    	detectText(dstMajor01, dstDetectText01, true);
-//    	detectText(dstMajor02, dstDetectText02, false);
+    	String dstDetectText01 = System.getProperty("user.dir") + "\\img\\spiewnik_15";
+    	String dstDetectText02 = System.getProperty("user.dir") + "\\img\\spiewnik_16";
+    	detectText(dstMajor01, dstDetectText01, true);
+    	detectText(dstMajor02, dstDetectText02, false);
     	
     	createCnnLetter();
     	
