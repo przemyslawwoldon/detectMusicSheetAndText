@@ -35,7 +35,7 @@ public class ImproveImg {
 		if (!dirDst.exists()) {
 			try {
 				dirDst.mkdirs();
-				System.out.println("DIR created" + dst);
+//				System.out.println("DIR created" + dst);
 			} catch (SecurityException e) {
 				e.printStackTrace();
 			}
@@ -55,7 +55,7 @@ public class ImproveImg {
 				srcImg = Imgcodecs.imread(listOfFileDirSrc[j].getPath(), Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
 			
 			if (srcImg.empty()) {
-				System.out.println("Nie mozna zaladowac obrazu" + "\\" + listOfFileDirSrc[j].getName());
+//				System.out.println("Nie mozna zaladowac obrazu" + "\\" + listOfFileDirSrc[j].getName());
 				loadImageFailed.add(listOfFileDirSrc[j].getName().toString());
 				continue;
 			}
@@ -64,10 +64,10 @@ public class ImproveImg {
 			Mat dstImg = new Mat();
 			Imgproc.threshold(srcImgBlur, dstImg, 170, 255, Imgproc.THRESH_BINARY); //160 :(
 			Imgcodecs.imwrite(dirDst + "\\" + listOfFileDirSrc[j].getName(), dstImg);
-			System.out.println("Improve " + fileNameAndExtension[nameFile] + " img finish");
+//			System.out.println("Improve " + fileNameAndExtension[nameFile] + " img finish");
 			System.gc();
 		}
-		System.out.println("Liczba niezaladowanych plikow " + loadImageFailed.size());
+//		System.out.println("Liczba niezaladowanych plikow " + loadImageFailed.size());
 	}
 			
 }

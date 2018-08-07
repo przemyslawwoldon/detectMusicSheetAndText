@@ -30,7 +30,7 @@ public class MusicSheetClassifierImg {
 		ArrayList<String> labelList = (ArrayList<String>) Stream.of("ms", "t").collect(Collectors.toList());
 
 		String filechooser = src;
-		String path = System.getProperty("user.dir") + "\\musicSheetText" + "\\textAndMusicSheet-model.zip";
+		String path = System.getProperty("java.io.tmpdir") + "\\img\\musicSheetText" + "\\textAndMusicSheet-model.zip";
 
 		File locationToSave = new File(path);
 		MultiLayerNetwork model = ModelSerializer.restoreMultiLayerNetwork(locationToSave);

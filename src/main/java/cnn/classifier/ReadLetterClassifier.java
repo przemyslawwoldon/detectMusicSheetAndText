@@ -66,7 +66,7 @@ public class ReadLetterClassifier {
 						"_zzz", "a", "aa", "b", "c", "cc", "d", "e", "ee", "f", "g", "h", "i", "j", "k", "l", "ll", "m",
 						"n", "nn", "o", "oo", "p", "r", "s", "ss", "t", "u", "w", "y", "z", "zz", "zzz")
 				.collect(Collectors.toList());
-		String ss = "D:\\PracaDyplomowaEclipse\\eclipseWorkspace\\ImageProcessingDetectTextUltimate\\enimst\\enimst-model.zip";
+		String ss = System.getProperty("java.io.tmpdir") + "\\img\\enimst\\enimst-model.zip";
 		File locationToSave = new File(ss/*System.getProperty("user.dir") + "\\enimst" + "\\enimst-model.zip"*/);
 		MultiLayerNetwork model = ModelSerializer.restoreMultiLayerNetwork(locationToSave);
 		

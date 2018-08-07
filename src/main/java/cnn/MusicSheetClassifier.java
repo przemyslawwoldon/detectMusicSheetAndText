@@ -41,8 +41,8 @@ public class MusicSheetClassifier {
 	}
 	
 	public void createTrainingCNNTextMusicSheet() throws IOException {
-		int height = 1200;
-		int width = 30;
+		int height = 600;
+		int width = 15;
 		int channels = 1; // single channel for grayscale images
 		int outputNum = 2; // 10 digits classification
 		int batchSize = 128;
@@ -108,7 +108,7 @@ public class MusicSheetClassifier {
 						.nOut(outputNum)
 						.activation(Activation.SOFTMAX)
 						.build())
-				.setInputType(InputType.convolutionalFlat(1200, 30, 1)) // InputType.convolutional for normal image
+				.setInputType(InputType.convolutionalFlat(600, 15, 1)) // InputType.convolutional for normal image
 				.backprop(true).pretrain(false).build();
 		MultiLayerNetwork net = new MultiLayerNetwork(conf);
 		net.init();
