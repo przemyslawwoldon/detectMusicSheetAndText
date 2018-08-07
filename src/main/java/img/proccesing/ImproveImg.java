@@ -44,10 +44,10 @@ public class ImproveImg {
 	
 	public void improveQualityImg() {
 		getAndCreateDir();
-		int nameFile = 0;
+//		int nameFile = 0;
 		List<String> loadImageFailed = new ArrayList<String>();
 		for (int j = 0; j < listOfFileDirSrc.length; j += 1) {
-			String[] fileNameAndExtension = listOfFileDirSrc[j].getName().split("\\.");
+//			String[] fileNameAndExtension = listOfFileDirSrc[j].getName().split("\\.");
 			Mat srcImg = new Mat();
 			if(listOfFileDirSrc.length != 1)
 				srcImg = Imgcodecs.imread(dirSrc + "\\" + listOfFileDirSrc[j].getName(), Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);

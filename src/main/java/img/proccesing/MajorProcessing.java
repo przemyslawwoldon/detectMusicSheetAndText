@@ -27,8 +27,8 @@ public class MajorProcessing {
 	private List<String> imageProcessingFailed = new ArrayList<String>();
 	
 	private File dirDst2;
-	private File dirDst3;
-	private File dirDst4;
+//	private File dirDst3;
+//	private File dirDst4;
 	
 	public MajorProcessing(String src, String dst) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -57,26 +57,26 @@ public class MajorProcessing {
 //		createAdditionalDir();
 	}
 	
-	private void createAdditionalDir() {
-		dirDst3= new File(dst + "\\" + "fullImg");
-		if (!dirDst3.exists()) {
-			try {
-				dirDst3.mkdirs();
-				System.out.println("DIR created" + dirDst3);
-			} catch (SecurityException e) {
-				e.printStackTrace();
-			}
-		}
-		dirDst4= new File(dst + "\\" + "allMusicSheet");
-		if (!dirDst4.exists()) {
-			try {
-				dirDst4.mkdirs();
-				System.out.println("DIR created" + dirDst4);
-			} catch (SecurityException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+//	private void createAdditionalDir() {
+//		dirDst3= new File(dst + "\\" + "fullImg");
+//		if (!dirDst3.exists()) {
+//			try {
+//				dirDst3.mkdirs();
+//				System.out.println("DIR created" + dirDst3);
+//			} catch (SecurityException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		dirDst4= new File(dst + "\\" + "allMusicSheet");
+//		if (!dirDst4.exists()) {
+//			try {
+//				dirDst4.mkdirs();
+//				System.out.println("DIR created" + dirDst4);
+//			} catch (SecurityException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 	
 	public void createDirForOneScan(String str){
 		dirDst2= new File(dst + "\\" + str);
